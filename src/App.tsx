@@ -5,6 +5,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // @import contexts
 import { EthereumContext } from "contexts/EthereumContext";
+// @import layouts
+const Layout = React.lazy(() => import("layouts"));
 // @import pages
 const Home = React.lazy(() => import("pages/home"));
 const Staking = React.lazy(() => import("pages/staking"));
@@ -26,11 +28,11 @@ const App = () => {
         setAccounts(accs);
         setCurrentAcc(accs[0]);
       });
-      ethereum.on("chainChanged", (chainId: string) => {
-        if (chainId === "0x1") {
-          toast("Ethereum mainnet connected successfully");
+      ethereum.on("chainChanged", (chainId: String) => {
+        if (chainId === "0x38") {
+          toast("BSC mainnet connected successfully");
         } else {
-          toast.error("Please connect to Ethereum mainnet", {
+          toast.error("Please connect to BSC mainnet", {
             theme: "dark",
           });
         }
@@ -62,9 +64,11 @@ const App = () => {
         <Suspense>
           <Router>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/staking" element={<Staking />} />
-              <Route path="/farming" element={<Farming />} />
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="staking" element={<Staking />} />
+                <Route path="farming" element={<Farming />} />
+              </Route>
             </Routes>
           </Router>
         </Suspense>
