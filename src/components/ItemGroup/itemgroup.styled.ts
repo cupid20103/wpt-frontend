@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 const ItemGroupContainer = styled.div`
   width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid #20486e;
+  z-index: -100;
 `;
 
 const ItemGroupContent = styled.div`
@@ -14,6 +16,12 @@ const ItemGroupContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
+  @media screen and (max-width: 1900px) {
+    padding: 20px 25px;
+  }
+  @media screen and (max-width: 1440px) {
+    padding: 20px 15px;
+  }
 `;
 
 const ItemGroupAPR = styled.div`
@@ -28,6 +36,13 @@ const ItemGroupFee = styled.div`
   align-items: center;
   color: #76c893;
   padding-top: 10px;
+  @media screen and (max-width: 1900px) {
+    padding-top: 5px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 1440px) {
+    font-size: 12px;
+  }
 `;
 
 const ItemGroupDown = styled.div`
@@ -39,8 +54,10 @@ const ItemGroupDown = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     font-size: 20px;
+    & > :not(:first-child) {
+      margin-left: 30px;
+    }
     & > div {
       width: 55px;
       height: 55px;
@@ -54,7 +71,33 @@ const ItemGroupDown = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    & > :not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+  @media screen and (max-width: 1900px) {
+    padding-top: 15px;
+    & > .operations {
+      & > :not(:first-child) {
+        margin-left: 25px;
+      }
+      & > div {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    padding-top: 10px;
+    & > .operations {
+      & > :not(:first-child) {
+        margin-left: 20px;
+      }
+      & > div {
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 `;
 

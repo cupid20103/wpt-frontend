@@ -25,10 +25,12 @@ const Header = () => {
         <Wallet />
         <HeaderContent>
           <HeaderTitle>
-            {location.pathname === "/"
-              ? "Home"
-              : location.pathname.slice(1).charAt(0).toUpperCase() +
-                location.pathname.slice(2)}
+            <p>
+              {location.pathname === "/"
+                ? "Home"
+                : location.pathname.slice(1).charAt(0).toUpperCase() +
+                  location.pathname.slice(2)}
+            </p>
             {location.pathname === "/" && <img src={home} alt={"home"} />}
             {location.pathname === "/staking" && (
               <img src={staking} alt={"staking"} />

@@ -16,6 +16,28 @@ const WPTContainer = styled.div`
   & > .price {
     font-size: 14px;
   }
+  @media screen and (max-width: 1900px) {
+    & > .title {
+      font-size: 14px;
+    }
+    & > .amount {
+      font-size: 16px;
+    }
+    & > .price {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    & > .title {
+      font-size: 12px;
+    }
+    & > .amount {
+      font-size: 14px;
+    }
+    & > .price {
+      font-size: 10px;
+    }
+  }
 `;
 
 export { WPTContainer };

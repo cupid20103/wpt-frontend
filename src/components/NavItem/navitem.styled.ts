@@ -16,6 +16,20 @@ const NavItemContainer = styled.div<Props>`
     width: 25px;
     height: 30px;
   }
+  @media screen and (max-width: 1900px) {
+    height: 35px;
+    border-left: 5px solid
+      ${({ active }) => (active ? "#168AAD" : "transparent")};
+    img {
+      width: 15px;
+      height: 20px;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    height: 30px;
+    border-left: 3px solid
+      ${({ active }) => (active ? "#168AAD" : "transparent")};
+  }
 `;
 
 export { NavItemContainer };
