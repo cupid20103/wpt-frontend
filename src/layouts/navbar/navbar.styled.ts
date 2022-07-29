@@ -25,26 +25,20 @@ const NavbarActions = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-top: 85px;
-  gap: 40px;
   background-color: #1d283c;
-  align-self: start;
-  a {
-    height: 30px;
-  }
-  img {
-    width: 25px;
-    height: 30px;
+  & > :not(:first-child) {
+    margin-top: 20px;
   }
 `;
 
 const SidebarContainer = styled.div`
   width: 470px;
   height: 100%;
-  padding-left: 50px;
   background-color: #00334a;
 `;
 
 const SidebarLogo = styled.div`
+  padding-left: 50px;
   width: 100%;
   height: 245px;
   padding-top: 80px;
@@ -62,13 +56,9 @@ const SidebarActions = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 85px;
-  gap: 40px;
   font-size: 17px;
-  a {
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  & > :not(:first-child) {
+    margin-top: 20px;
   }
 `;
 

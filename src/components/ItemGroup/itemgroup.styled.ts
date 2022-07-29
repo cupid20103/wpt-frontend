@@ -59,6 +59,7 @@ const ItemGroupDown = styled.div`
 `;
 
 const PlusButton = styled.div`
+  color: #000c27;
   background-color: #89c697;
   border-radius: 50%;
 `;

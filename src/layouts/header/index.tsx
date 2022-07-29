@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 //@import components
 import Wallet from "components/Wallet";
 //@import styles
@@ -13,13 +14,18 @@ import { links } from "./data";
 import human from "assets/images/home.svg";
 
 const Header = () => {
+  const location = useLocation();
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
         <Wallet />
         <HeaderContent>
           <HeaderTitle>
-            {"Home"}
+            {location.pathname === "/"
+              ? "Home"
+              : location.pathname.slice(1).charAt(0).toUpperCase() +
+                location.pathname.slice(2)}
             <img src={human} alt={"human"} />
           </HeaderTitle>
           <Links>

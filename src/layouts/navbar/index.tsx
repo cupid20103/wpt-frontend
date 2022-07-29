@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+//@import components
+import SidebarItem from "components/SidebarItem";
+import NavItem from "components/NavItem";
 //@import styles
 import {
   NavbarActions,
@@ -13,14 +16,19 @@ import { links } from "./data";
 import logo from "assets/images/logo.png";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <NavbarWrapper>
       <NavbarContainer>
         <NavbarActions>
           {links.map((item, index) => (
-            <Link key={index} to={item.link}>
-              <img src={item.image} alt={"navs"} />
-            </Link>
+            <NavItem
+              key={index}
+              image={item.image}
+              link={item.link}
+              active={location.pathname === item.link}
+            />
           ))}
         </NavbarActions>
       </NavbarContainer>
@@ -30,9 +38,12 @@ const Navbar = () => {
         </SidebarLogo>
         <SidebarActions>
           {links.map((item, index) => (
-            <Link key={index} to={item.link}>
-              {item.content}
-            </Link>
+            <SidebarItem
+              key={index}
+              content={item.content}
+              link={item.link}
+              active={location.pathname === item.link}
+            />
           ))}
         </SidebarActions>
       </SidebarContainer>
