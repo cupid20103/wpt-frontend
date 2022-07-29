@@ -4,14 +4,14 @@ const SidebarContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  top: 245px;
+  top: 255px;
   width: 545px;
-  height: calc(100vh - 245px);
+  height: calc(100vh - 255px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 75px 60px;
-  background-color: #103553;
+  background: linear-gradient(#103553, transparent);
 `;
 
 const SidebarLogo = styled.div`

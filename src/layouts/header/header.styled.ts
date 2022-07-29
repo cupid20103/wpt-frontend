@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.div`
   width: 100vw;
-  height: 245px;
+  height: 247px;
   padding-left: 575px;
-  border-bottom: 9px solid #d9ed92;
 `;
 
 const HeaderContainer = styled.div`
@@ -48,4 +47,19 @@ const Links = styled.div`
   }
 `;
 
-export { HeaderWrapper, HeaderContainer, HeaderContent, HeaderTitle, Links };
+const HeaderBottom = styled.div`
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 8px;
+  background: linear-gradient(90deg, #d9ed92, #168aad);
+`;
+
+export {
+  HeaderWrapper,
+  HeaderContainer,
+  HeaderContent,
+  HeaderTitle,
+  Links,
+  HeaderBottom,
+};

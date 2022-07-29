@@ -8,10 +8,13 @@ import {
   HeaderTitle,
   HeaderWrapper,
   Links,
+  HeaderBottom,
 } from "./header.styled";
 //@import resources
 import { links } from "./data";
-import human from "assets/images/home.svg";
+import home from "assets/images/home.svg";
+import staking from "assets/images/staking.png";
+import farming from "assets/images/farming.png";
 
 const Header = () => {
   const location = useLocation();
@@ -26,7 +29,13 @@ const Header = () => {
               ? "Home"
               : location.pathname.slice(1).charAt(0).toUpperCase() +
                 location.pathname.slice(2)}
-            <img src={human} alt={"human"} />
+            {location.pathname === "/" && <img src={home} alt={"home"} />}
+            {location.pathname === "/staking" && (
+              <img src={staking} alt={"staking"} />
+            )}
+            {location.pathname === "/farming" && (
+              <img src={farming} alt={"farming"} />
+            )}
           </HeaderTitle>
           <Links>
             {links.map((item, index) => (
@@ -42,6 +51,7 @@ const Header = () => {
           </Links>
         </HeaderContent>
       </HeaderContainer>
+      <HeaderBottom />
     </HeaderWrapper>
   );
 };

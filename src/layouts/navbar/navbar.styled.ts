@@ -15,7 +15,7 @@ const NavbarWrapper = styled.div`
 const NavbarContainer = styled.div`
   width: 105px;
   height: 100%;
-  padding-top: 245px;
+  padding-top: 255px;
 `;
 
 const NavbarActions = styled.div`
@@ -34,13 +34,13 @@ const NavbarActions = styled.div`
 const SidebarContainer = styled.div`
   width: 470px;
   height: 100%;
-  background-color: #00334a;
+  background: linear-gradient(#000c27, #00334a);
 `;
 
 const SidebarLogo = styled.div`
   padding-left: 50px;
   width: 100%;
-  height: 245px;
+  height: 255px;
   padding-top: 80px;
   img {
     width: 225px;
