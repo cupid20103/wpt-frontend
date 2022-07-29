@@ -32,7 +32,9 @@ const Sidebar = () => {
         </SidebarItem>
         <SidebarItem>
           <p>{"ETH Contract:"}</p>
-          <a href="/">{"Visit Etherscan"}</a>
+          <a href={"/"} target={"_blank"} rel={"noreferrer"}>
+            {"Visit Etherscan"}
+          </a>
         </SidebarItem>
       </SidebarContent>
       <SidebarImg src={detail_bg} alt={"sidebar_bg"} />

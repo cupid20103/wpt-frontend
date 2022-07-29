@@ -17,12 +17,12 @@ interface Props {
 const Item = (props: Props) => {
   return (
     <ItemContainer>
-      <ItemImage src={props.image} alt="item" />
+      <ItemImage src={props.image} alt={"item"} />
       <ItemTitle>{props.title}</ItemTitle>
       {props.isBalance ? (
         <ItemBalance>
-          <span className="percent">{"+2.3%"}</span>
-          <span className="time">{"In 24hrs"}</span>
+          <span className={"percent"}>{"+2.3%"}</span>
+          <span className={"time"}>{"In 24hrs"}</span>
         </ItemBalance>
       ) : null}
       <ItemContent>{props.content}</ItemContent>

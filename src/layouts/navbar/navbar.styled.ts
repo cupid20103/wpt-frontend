@@ -27,6 +27,10 @@ const NavbarActions = styled.div`
   padding-top: 85px;
   gap: 40px;
   background-color: #1d283c;
+  align-self: start;
+  a {
+    height: 30px;
+  }
   img {
     width: 25px;
     height: 30px;

@@ -7,17 +7,22 @@ import metamask from "assets/images/metamask.png";
 interface Props {
   title: string;
   color?: string;
-  isMetamask: boolean;
+  isMetamask?: boolean;
+  link: string;
 }
 
 const ExternalLink = (props: Props) => {
   return (
-    <ExternalLinkContainer>
-      <p color={props.color}>{props.title}</p>
+    <ExternalLinkContainer color={props.color}>
+      <p>{props.title}</p>
       {props.isMetamask ? (
-        <img src={link} alt="link" />
+        <a href={props.link} target={"_blank"} rel={"noreferrer"}>
+          <img src={metamask} alt={"metamask"} />
+        </a>
       ) : (
-        <img src={metamask} alt="metamask" />
+        <a href={props.link} target={"_blank"} rel={"noreferrer"}>
+          <img src={link} alt={"link"} />
+        </a>
       )}
     </ExternalLinkContainer>
   );

@@ -2,7 +2,7 @@
 import { ButtonContainer } from "./button.styled";
 
 interface Props {
-  flag: boolean;
+  flag?: boolean;
   content: string;
 }
 
