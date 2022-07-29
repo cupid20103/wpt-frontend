@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  flag: Boolean;
+  flag: boolean;
 }
 
 const ButtonContainer = styled.div<Props>`

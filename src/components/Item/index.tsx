@@ -9,9 +9,9 @@ import {
 
 interface Props {
   image: any;
-  title: String;
-  isBalance: Boolean;
-  content: String;
+  title: string;
+  isBalance: boolean;
+  content: string;
 }
 
 const Item = (props: Props) => {

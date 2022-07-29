@@ -28,7 +28,7 @@ const App = () => {
         setAccounts(accs);
         setCurrentAcc(accs[0]);
       });
-      ethereum.on("chainChanged", (chainId: String) => {
+      ethereum.on("chainChanged", (chainId: string) => {
         if (chainId === "0x38") {
           toast("BSC mainnet connected successfully");
         } else {

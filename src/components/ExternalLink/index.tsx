@@ -5,9 +5,9 @@ import link from "assets/images/link.svg";
 import metamask from "assets/images/metamask.png";
 
 interface Props {
-  title: String;
+  title: string;
   color?: string;
-  isMetamask: Boolean;
+  isMetamask: boolean;
 }
 
 const ExternalLink = (props: Props) => {

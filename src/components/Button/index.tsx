@@ -2,8 +2,8 @@
 import { ButtonContainer } from "./button.styled";
 
 interface Props {
-  flag: Boolean;
-  content: String;
+  flag: boolean;
+  content: string;
 }
 
 const Button = (props: Props) => {

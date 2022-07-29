@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  color?: String;
+  color?: string;
 }
 
 const ExternalLinkContainer = styled.div<Props>`
