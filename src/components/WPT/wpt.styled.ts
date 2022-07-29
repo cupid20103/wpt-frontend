@@ -38,6 +38,17 @@ const WPTContainer = styled.div`
       font-size: 10px;
     }
   }
+  @media screen and (max-width: 768px) {
+    & > .title {
+      font-size: 10px;
+    }
+    & > .amount {
+      font-size: 12px;
+    }
+    & > .price {
+      font-size: 8px;
+    }
+  }
 `;
 
 export { WPTContainer };

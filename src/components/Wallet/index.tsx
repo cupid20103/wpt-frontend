@@ -1,13 +1,26 @@
+import { useEffect, useState } from "react";
 // @import contexts
 import { useEthContext } from "../../contexts/EthereumContext";
 //@import styles
 import { WalletContainer, WalletStatus } from "./wallet.styled";
 //@import resources
+import { isScreenWidth } from "utils/getScreenWidth";
 import KeyOpen from "assets/images/keyopen.svg";
 import KeyClose from "assets/images/keyclose.svg";
 
 const Wallet = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const { provider, currentAcc }: any = useEthContext();
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(isScreenWidth(768));
+    });
+    setIsMobile(isScreenWidth(768));
+    return () => {
+      window.removeEventListener("resize", () => {});
+    };
+  }, []);
 
   const handleConnectWallet = async () => {
     if (provider) {
@@ -28,7 +41,9 @@ const Wallet = () => {
       {provider ? (
         <p onClick={handleConnectWallet}>
           {currentAcc
-            ? `${currentAcc.substring(0, 6)}...${currentAcc.substring(38)}`
+            ? isMobile
+              ? "Connected"
+              : `${currentAcc.substring(0, 6)}...${currentAcc.substring(38)}`
             : "Connect Wallet"}
         </p>
       ) : (

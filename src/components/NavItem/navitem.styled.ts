@@ -27,8 +27,6 @@ const NavItemContainer = styled.div<Props>`
   }
   @media screen and (max-width: 1440px) {
     height: 30px;
-    border-left: 3px solid
-      ${({ active }) => (active ? "#168AAD" : "transparent")};
   }
 `;
 

@@ -22,12 +22,21 @@ const ItemGroupContent = styled.div`
   @media screen and (max-width: 1440px) {
     padding: 20px 15px;
   }
+  @media screen and (max-width: 768px) {
+    padding: 10px 5px;
+  }
 `;
 
 const ItemGroupAPR = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 1440px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const ItemGroupFee = styled.div`
@@ -42,6 +51,9 @@ const ItemGroupFee = styled.div`
   }
   @media screen and (max-width: 1440px) {
     font-size: 12px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
   }
 `;
 
@@ -96,6 +108,16 @@ const ItemGroupDown = styled.div`
       & > div {
         width: 25px;
         height: 25px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    & > .buttons {
+      flex-direction: column;
+      & > :not(:first-child) {
+        margin-left: 0px;
+        margin-top: 10px;
       }
     }
   }

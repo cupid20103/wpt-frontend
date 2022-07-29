@@ -17,12 +17,22 @@ const StakingWrapper = styled.div`
   @media screen and (max-width: 1024px) {
     margin: 0 0 0 300px;
   }
+  @media screen and (max-width: 768px) {
+    margin: 0 0 0 50px;
+  }
+  @media screen and (max-width: 425px) {
+    height: calc(100vh - 205px);
+    margin: 0 0 55px 0px;
+  }
 `;
 
 const StakingContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 35px;
+  @media screen and (max-width: 425px) {
+    gap: 25px;
+  }
 `;
 
 export { StakingWrapper, StakingContainer };

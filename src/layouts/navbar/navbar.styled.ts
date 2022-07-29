@@ -22,6 +22,9 @@ const NavbarContainer = styled.div`
   @media screen and (max-width: 1440px) {
     width: 50px;
   }
+  @media screen and (max-width: 425px) {
+    display: none;
+  }
 `;
 
 const NavbarActions = styled.div`
@@ -55,6 +58,9 @@ const SidebarContainer = styled.div`
   }
   @media screen and (max-width: 1440px) {
     width: 250px;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 

@@ -48,6 +48,11 @@ const ExternalLinkContainer = styled.div<Props>`
       font-size: 12px;
     }
   }
+  @media screen and (max-width: 768px) {
+    p {
+      font-size: 10px;
+    }
+  }
 `;
 
 export { ExternalLinkContainer };

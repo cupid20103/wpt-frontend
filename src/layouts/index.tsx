@@ -1,3 +1,4 @@
+import Socials from "components/Socials";
 import { Outlet } from "react-router-dom";
 //@import layouts
 import Header from "./header";
@@ -9,8 +10,9 @@ const Layout = () => {
     <>
       <Header />
       <Navbar />
-      <Outlet />
       <Sidebar />
+      <Outlet />
+      <Socials />
     </>
   );
 };
