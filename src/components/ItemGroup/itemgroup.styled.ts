@@ -8,7 +8,6 @@ const ItemGroupContainer = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid #20486e;
-  z-index: -100;
 `;
 
 const ItemGroupContent = styled.div`

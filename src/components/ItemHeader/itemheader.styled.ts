@@ -5,7 +5,6 @@ interface Props {
 }
 
 const ItemHeaderWrapper = styled.div`
-  position: relative;
   width: 100%;
   height: 111px;
   display: flex;
@@ -21,6 +20,7 @@ const ItemHeaderWrapper = styled.div`
 `;
 
 const ItemHeaderContainer = styled.div<Props>`
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: ${({ isStaking }) =>

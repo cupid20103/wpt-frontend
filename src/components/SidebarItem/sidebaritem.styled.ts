@@ -13,6 +13,7 @@ const SidebarItemContainer = styled.div<Props>`
   padding: 0 50px;
   background: ${({ active }) =>
     active ? "linear-gradient(90deg, #48cae4, transparent)" : "transparent"};
+  cursor: pointer;
   @media screen and (max-width: 1900px) {
     height: 35px;
     padding: 0 35px;

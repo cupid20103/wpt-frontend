@@ -12,6 +12,7 @@ const NavItemContainer = styled.div<Props>`
   align-items: center;
   border-left: 10px solid
     ${({ active }) => (active ? "#168AAD" : "transparent")};
+  cursor: pointer;
   img {
     width: 25px;
     height: 30px;
