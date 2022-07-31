@@ -87,14 +87,11 @@ const ItemHeaderTitle = styled.div`
     }
   }
   @media screen and (max-width: 768px) {
-    & > :not(:first-child) {
-      margin-left: 5px;
-    }
     & > .bnb {
       width: 15px;
       height: 15px;
-      top: 5px;
-      left: 15px;
+      top: 0px;
+      left: 5px;
     }
     & > .logo {
       width: 20px;
