@@ -9,12 +9,14 @@ import Layout from "layouts";
 import { Farming, Home, Staking } from "pages";
 // @import contexts
 import EthereumContextProvider from "contexts/EthereumContext";
+// @import components
+import Loader from "components/Loader";
 
 const App = () => {
   return (
     <>
       <EthereumContextProvider>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Router>
             <Routes>
               <Route path="/" element={<Layout />}>
