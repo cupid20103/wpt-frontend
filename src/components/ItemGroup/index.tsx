@@ -27,8 +27,6 @@ interface Props {
   twoLink: string;
   staked: string;
   sPrice: string;
-  earned: string;
-  ePrice: string;
   reflected: string;
   rPrice: string;
 }
@@ -83,11 +81,7 @@ const ItemGroup = (props: Props) => {
           </div>
         </ItemGroupDown>
         <ItemGroupDown>
-          <WPT
-            title={"WPT EARNED"}
-            amount={props.earned}
-            price={props.ePrice}
-          />
+          <WPT title={"WPT EARNED"} />
           {props.isStaking ? (
             <Button flag content="COMPOUND" />
           ) : (
@@ -100,14 +94,6 @@ const ItemGroup = (props: Props) => {
             amount={props.reflected}
             price={props.rPrice}
           />
-          {props.isStaking ? (
-            <div className="buttons">
-              <Button flag content="COMPOUND" />
-              <Button content="HARVEST" />
-            </div>
-          ) : (
-            <Button content="HARVEST" />
-          )}
         </ItemGroupDown>
       </ItemGroupContent>
     </ItemGroupContainer>

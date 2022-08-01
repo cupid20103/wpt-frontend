@@ -14,9 +14,8 @@ const Farming = React.lazy(() => import("pages/farming"));
 
 const App = () => {
   const [provider, setProvider] = useState<any>(null);
-  const [web3, setWeb3] = useState<any>(null);
-  const [accounts, setAccounts] = useState<any>([]);
   const [currentAcc, setCurrentAcc] = useState("");
+  const [web3, setWeb3] = useState<any>(null);
 
   useEffect(() => {
     const { ethereum }: any = window;
@@ -25,14 +24,13 @@ const App = () => {
       setProvider(ethereum);
       setWeb3(new Web3(ethereum));
       ethereum.on("accountsChanged", (accs: any) => {
-        setAccounts(accs);
         setCurrentAcc(accs[0]);
       });
       ethereum.on("chainChanged", (chainId: string) => {
-        if (chainId === "0x38") {
-          toast("BSC mainnet connected successfully");
+        if (chainId === "0x1") {
+          toast("Ethereum mainnet connected successfully");
         } else {
-          toast.error("Please connect to BSC mainnet", {
+          toast.error("Please connect to Ethereum mainnet", {
             theme: "dark",
           });
         }
@@ -44,23 +42,9 @@ const App = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const setCurrentlyConnectedAccount = async () => {
-      let accounts = await web3.eth.getAccounts();
-      if (accounts && accounts.length > 0) {
-        setCurrentAcc(accounts[0]);
-      }
-    };
-    if (web3) {
-      setCurrentlyConnectedAccount();
-    }
-  }, [web3]);
-
   return (
     <>
-      <EthereumContext.Provider
-        value={{ provider, accounts, web3, currentAcc }}
-      >
+      <EthereumContext.Provider value={{ provider, currentAcc, web3 }}>
         <Suspense>
           <Router>
             <Routes>

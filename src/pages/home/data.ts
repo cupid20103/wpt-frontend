@@ -1,7 +1,6 @@
 import balance from "assets/images/balance.svg";
 import price from "assets/images/price.png";
 import market from "assets/images/market.png";
-import rewards from "assets/images/rewards.png";
 import holders from "assets/images/holders.svg";
 import volume from "assets/images/volume.svg";
 
@@ -23,12 +22,6 @@ export const contents = [
     title: "Market Cap",
     isBalance: false,
     content: "$123,456,78",
-  },
-  {
-    image: rewards,
-    title: "Your Rewards",
-    isBalance: false,
-    content: "123,456,78",
   },
   {
     image: holders,

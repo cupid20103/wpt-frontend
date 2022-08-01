@@ -28,7 +28,7 @@ const Wallet = () => {
       try {
         await provider.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x38" }],
+          params: [{ chainId: "0x1" }],
         });
       } catch (switchError) {
         console.log("Failed to switch to the network");

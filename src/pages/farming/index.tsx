@@ -21,8 +21,6 @@ const Farming = () => {
           twoLink={"/"}
           staked={"223, 211.56"}
           sPrice={"3, 100.43"}
-          earned={"223, 211.56"}
-          ePrice={"3, 100.43"}
           reflected={"223, 211.56"}
           rPrice={"3, 100.43"}
         />
