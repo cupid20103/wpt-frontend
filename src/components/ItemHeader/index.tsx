@@ -15,6 +15,7 @@ interface Props {
   isStaking: boolean;
   title: string;
   subtitle: string;
+  link?: string;
 }
 
 const ItemHeader = (props: Props) => {
@@ -32,7 +33,7 @@ const ItemHeader = (props: Props) => {
           </ItemHeaderText>
         </ItemHeaderTitle>
         {props.isStaking ? (
-          <ExternalLink title={"See token info"} link={"/"} />
+          <ExternalLink title={"See token info"} link={props.link} />
         ) : null}
       </ItemHeaderContainer>
     </ItemHeaderWrapper>

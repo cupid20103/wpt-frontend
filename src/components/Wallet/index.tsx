@@ -4,7 +4,7 @@ import { useEthContext } from "contexts/EthereumContext/EthereumContext";
 //@import styles
 import { WalletContainer, WalletStatus } from "./wallet.styled";
 //@import resources
-import { isScreenWidth } from "utils/getScreenWidth";
+import { getScreenWidth } from "utils/getScreenWidth";
 import KeyOpen from "assets/images/keyopen.svg";
 import KeyClose from "assets/images/keyclose.svg";
 
@@ -14,9 +14,9 @@ const Wallet = () => {
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setIsMobile(isScreenWidth(768));
+      setIsMobile(getScreenWidth(768));
     });
-    setIsMobile(isScreenWidth(768));
+    setIsMobile(getScreenWidth(768));
     return () => {
       window.removeEventListener("resize", () => {});
     };

@@ -1,0 +1,38 @@
+export const contents = [
+  {
+    isStaking: true,
+    title: "EARN WPT / STAKE WPT",
+    subtitle: "90 DAYS STAKING",
+    tokenInfo:
+      "https://etherscan.io/address/0x9132AdAf85802A025d8F3830126E3E9894a451f9",
+    apr: 10.13,
+    oneTitle: "View project site",
+    oneLink: "/",
+    deposit: 2,
+    withdraw: 0,
+    twoTitle: "Add to Metamask",
+    twoLink: "/",
+    staked: 223211.56,
+    sPrice: 3100.43,
+    earned: 223211.56,
+    ePrice: 3100.43,
+  },
+  {
+    isStaking: true,
+    title: "EARN WPT / STAKE WPT",
+    subtitle: "120 DAYS STAKING",
+    tokenInfo:
+      "https://etherscan.io/address/0x9132AdAf85802A025d8F3830126E3E9894a451f9",
+    apr: 14.36,
+    oneTitle: "View project site",
+    oneLink: "/",
+    deposit: 0,
+    withdraw: 0,
+    twoTitle: "Add to Metamask",
+    twoLink: "/",
+    staked: 223211.56,
+    sPrice: 3100.43,
+    earned: 223211.56,
+    ePrice: 3100.43,
+  },
+];

@@ -8,7 +8,7 @@ interface Props {
   title: string;
   color?: string;
   isMetamask?: boolean;
-  link: string;
+  link?: string;
 }
 
 const ExternalLink = (props: Props) => {

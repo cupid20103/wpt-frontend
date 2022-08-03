@@ -1,4 +1,4 @@
-export const isScreenWidth = (width:number) => {
+export const getScreenWidth = (width: number) => {
   if (window.innerWidth > width) {
     return false;
   } else {

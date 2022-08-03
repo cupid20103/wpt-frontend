@@ -30,11 +30,15 @@ const ItemGroupAPR = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 24px;
+  @media screen and (max-width: 1900px) {
+    font-size: 20px;
+  }
   @media screen and (max-width: 1440px) {
-    font-size: 14px;
+    font-size: 16px;
   }
   @media screen and (max-width: 768px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 

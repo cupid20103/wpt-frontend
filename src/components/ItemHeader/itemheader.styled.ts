@@ -6,7 +6,7 @@ interface Props {
 
 const ItemHeaderWrapper = styled.div`
   width: 100%;
-  height: 111px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

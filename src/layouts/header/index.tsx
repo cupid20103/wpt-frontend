@@ -30,7 +30,7 @@ import {
 //@import resources
 import { links } from "./data";
 import { links as navlinks } from "../navbar/data";
-import { isScreenWidth } from "utils/getScreenWidth";
+import { getScreenWidth } from "utils/getScreenWidth";
 import logo from "assets/images/logo.png";
 import home from "assets/images/home.svg";
 import staking from "assets/images/staking.png";
@@ -44,9 +44,9 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setIsMobile(isScreenWidth(768));
+      setIsMobile(getScreenWidth(768));
     });
-    setIsMobile(isScreenWidth(768));
+    setIsMobile(getScreenWidth(768));
     return () => {
       window.removeEventListener("resize", () => {});
     };

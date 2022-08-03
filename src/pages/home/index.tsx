@@ -11,13 +11,7 @@ const Home = () => {
     <HomeWrapper>
       <HomeContainer>
         {contents.map((item, index) => (
-          <Item
-            key={index}
-            image={item.image}
-            title={item.title}
-            isBalance={item.isBalance}
-            content={item.content}
-          />
+          <Item key={index} {...item} />
         ))}
       </HomeContainer>
       <Detail />

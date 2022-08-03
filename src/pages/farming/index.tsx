@@ -3,27 +3,16 @@ import Detail from "components/Detail";
 import ItemGroup from "components/ItemGroup";
 //@import styles
 import { FarmingContainer, FarmingWrapper } from "./farming.styled";
+//@import resources
+import { contents } from "./data";
 
 const Farming = () => {
   return (
     <FarmingWrapper>
       <FarmingContainer>
-        <ItemGroup
-          isStaking={false}
-          title={"EARN WPT / STAKE WPT"}
-          subtitle={"90 DAYS STAKING"}
-          apr={14.36}
-          oneTitle={"View Contract"}
-          oneLink={"/"}
-          deposit={0}
-          withdraw={0}
-          twoTitle={"See pair info"}
-          twoLink={"/"}
-          staked={"223, 211.56"}
-          sPrice={"3, 100.43"}
-          reflected={"223, 211.56"}
-          rPrice={"3, 100.43"}
-        />
+        {contents.map((item, index) => (
+          <ItemGroup key={index} {...item} />
+        ))}
       </FarmingContainer>
       <Detail />
     </FarmingWrapper>

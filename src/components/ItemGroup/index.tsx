@@ -18,17 +18,18 @@ interface Props {
   isStaking: boolean;
   title: string;
   subtitle: string;
+  tokenInfo?: string;
   apr: number;
-  oneTitle: string;
-  oneLink: string;
   deposit: number;
   withdraw: number;
+  oneTitle: string;
+  oneLink: string;
   twoTitle: string;
   twoLink: string;
-  staked: string;
-  sPrice: string;
-  reflected: string;
-  rPrice: string;
+  staked: number;
+  sPrice: number;
+  earned: number;
+  ePrice: number;
 }
 
 const ItemGroup = (props: Props) => {
@@ -38,6 +39,7 @@ const ItemGroup = (props: Props) => {
         isStaking={props.isStaking}
         title={props.title}
         subtitle={props.subtitle}
+        link={props.tokenInfo}
       />
       <ItemGroupContent>
         <ItemGroupAPR>
@@ -71,7 +73,8 @@ const ItemGroup = (props: Props) => {
         </ItemGroupFee>
         <ItemGroupDown>
           <WPT
-            title={"WPT STAKED"}
+            isStaking={props.isStaking}
+            title={props.isStaking ? "WPT STAKED" : "WPT-ETH LP STAKED"}
             amount={props.staked}
             price={props.sPrice}
           />
@@ -81,19 +84,18 @@ const ItemGroup = (props: Props) => {
           </div>
         </ItemGroupDown>
         <ItemGroupDown>
-          <WPT title={"WPT EARNED"} />
+          <WPT
+            isStaking={props.isStaking}
+            title={props.isStaking ? "WPT EARNED" : "WPT-ETH LP EARNED"}
+            amount={props.earned}
+            price={props.ePrice}
+          />
+
           {props.isStaking ? (
             <Button flag content="COMPOUND" />
           ) : (
             <Button content="HARVEST" />
           )}
-        </ItemGroupDown>
-        <ItemGroupDown>
-          <WPT
-            title={"WPT REFLECTED"}
-            amount={props.reflected}
-            price={props.rPrice}
-          />
         </ItemGroupDown>
       </ItemGroupContent>
     </ItemGroupContainer>
