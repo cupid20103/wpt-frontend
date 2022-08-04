@@ -12,19 +12,16 @@ import { useEthContext } from "contexts/EthereumContext/EthereumContext";
 import balanceImg from "assets/images/balance.svg";
 import priceImg from "assets/images/price.png";
 import marketImg from "assets/images/market.png";
-import holdersImg from "assets/images/holders.svg";
+// import holdersImg from "assets/images/holders.svg";
 import volumeImg from "assets/images/volume.svg";
-
-require("dotenv").config();
-const { REACT_APP_CMC_API_KEY, REACT_APP_ESCAN_API_KEY }: any = process.env;
 
 const Home = () => {
   const { currentAcc, web3 }: any = useEthContext();
   const [balance, setBalance] = useState(0);
-  // const [holder, setHolder] = useState(0);
+  // const [holder, setHolder] = useState(304);
   const [price, setPrice] = useState(0);
   const [volume, setVolume] = useState(0);
-  // const [crypto, setCrypto] = useState([]);
+  const [marketcap, setMarketcap] = useState(0);
 
   useEffect(() => {
     const contract = new web3.eth.Contract(WPTContractABI, WPTAddress);
@@ -49,26 +46,13 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?symbol='WPT'",
-        {
-          headers: {
-            "X-CMC_PRO_API_KEY": "3fe25879-b890-4f32-93f6-fac1c7fad2ed",
-          },
-        }
-      )
+      .get("http://localhost:4000/api/getInfo")
       .then((res) => {
-        console.log(res);
-      });
-    // await axios
-    //   .get(
-    //     "https://api.coingecko.com/api/v3/coins/ethereum/contract/0x4fd51cb87ffefdf1711112b5bd8ab682e54988ea"
-    //   )
-    //   .then((res) => {
-    //     console.log(res.data.market_data);
-    //     setPrice(res.data.market_data.current_price.usd);
-    //     setVolume(res.data.market_data.total_volume.usd);
-    //   });
+        setPrice(res.data.quote.USD.price.toFixed(2));
+        setVolume(res.data.quote.USD.volume_change_24h.toFixed(2));
+        setMarketcap(res.data.self_reported_market_cap.toFixed(2));
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -88,15 +72,15 @@ const Home = () => {
           isHolders={false}
           content={price}
         />
-        {/* <Item
-          image={market}
+        <Item
+          image={marketImg}
           title={"Market Cap"}
           isBalance={false}
           isHolders={false}
-          content={crypto.quote.USD.market_cap}
-        /> */}
+          content={marketcap}
+        />
         {/* <Item
-          image={holders}
+          image={holdersImg}
           title={"Holders"}
           isBalance={false}
           isHolders={true}
