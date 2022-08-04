@@ -1,3 +1,4 @@
+//@import resources
 import balance from "assets/images/balance.svg";
 import price from "assets/images/price.png";
 import market from "assets/images/market.png";
@@ -9,30 +10,30 @@ export const contents = [
     image: balance,
     title: "Account Balance",
     isBalance: true,
-    content: "$123,456,78",
+    isHolders: false,
   },
   {
     image: price,
     title: "WPT Price",
     isBalance: false,
-    content: "$123,456,78",
+    isHolders: false,
   },
   {
     image: market,
     title: "Market Cap",
     isBalance: false,
-    content: "$123,456,78",
+    isHolders: false,
   },
   {
     image: holders,
     title: "Holders",
     isBalance: false,
-    content: "123,456",
+    isHolders: true,
   },
   {
     image: volume,
     title: "Daily Volume",
     isBalance: false,
-    content: "$123,456,78",
+    isHolders: false,
   },
 ];

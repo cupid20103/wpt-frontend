@@ -38,6 +38,18 @@ const EthereumContextProvider = (props: Props) => {
     }
   }, []);
 
+  useEffect(() => {
+    const setCurrentlyConnectedAccount = async () => {
+      const accs = await web3.eth.getAccounts();
+      if (accs && accs.length > 0) {
+        setCurrentAcc(accs[0]);
+      }
+    };
+    if (web3) {
+      setCurrentlyConnectedAccount();
+    }
+  }, [web3]);
+
   return (
     <EthereumContext.Provider value={{ provider, currentAcc, web3 }}>
       {props.children}

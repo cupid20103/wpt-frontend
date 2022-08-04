@@ -1,3 +1,4 @@
+//@import resources
 import twitter from "assets/images/twitter.svg";
 import telegram from "assets/images/telegram.svg";
 import discord from "assets/images/discord.svg";

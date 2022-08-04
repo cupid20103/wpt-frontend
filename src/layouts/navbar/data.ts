@@ -1,3 +1,4 @@
+//@import resources
 import home from "assets/images/home.svg";
 import staking from "assets/images/staking.png";
 import farming from "assets/images/farming.png";

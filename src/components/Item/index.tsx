@@ -6,15 +6,20 @@ import {
   ItemImage,
   ItemTitle,
 } from "./item.styled";
+//@import resources
+import { numberWithCommas } from "utils/getNumberWithCommas";
 
 interface Props {
   image: any;
   title: string;
+  content: number;
   isBalance: boolean;
-  content: string;
+  isHolders: boolean;
 }
 
 const Item = (props: Props) => {
+  const content = numberWithCommas(props.content);
+
   return (
     <ItemContainer>
       <ItemImage src={props.image} alt={"item"} />
@@ -25,7 +30,7 @@ const Item = (props: Props) => {
           <span className={"time"}>{"In 24hrs"}</span>
         </ItemBalance>
       ) : null}
-      <ItemContent>{props.content}</ItemContent>
+      <ItemContent>{props.isHolders ? content : `$` + content}</ItemContent>
     </ItemContainer>
   );
 };
