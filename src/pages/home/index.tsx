@@ -12,7 +12,7 @@ import { useEthContext } from "contexts/EthereumContext/EthereumContext";
 import balanceImg from "assets/images/balance.svg";
 import priceImg from "assets/images/price.png";
 import marketImg from "assets/images/market.png";
-// import holdersImg from "assets/images/holders.svg";
+import holdersImg from "assets/images/holders.svg";
 import volumeImg from "assets/images/volume.svg";
 
 require("dotenv").config();
@@ -20,8 +20,9 @@ const { REACT_APP_SERVER_URI } = process.env;
 
 const Home = () => {
   const { currentAcc, web3 }: any = useEthContext();
+  const [percent, setPercent] = useState(0);
   const [balance, setBalance] = useState(0);
-  // const [holder, setHolder] = useState(304);
+  const [holder, setHolder] = useState(304);
   const [price, setPrice] = useState(0);
   const [volume, setVolume] = useState(0);
   const [marketcap, setMarketcap] = useState(0);
@@ -51,8 +52,9 @@ const Home = () => {
     axios
       .get(REACT_APP_SERVER_URI + "/api/getInfo")
       .then((res) => {
+        setPercent(res.data.quote.USD.volume_change_24h.toFixed(2));
         setPrice(res.data.quote.USD.price.toFixed(2));
-        setVolume(res.data.quote.USD.volume_change_24h.toFixed(2));
+        setVolume(res.data.quote.USD.volume_24h.toFixed(2));
         setMarketcap(res.data.self_reported_market_cap.toFixed(2));
       })
       .catch((err) => console.log(err));
@@ -64,35 +66,31 @@ const Home = () => {
         <Item
           image={balanceImg}
           title={"Account Balance"}
-          isBalance={true}
           isHolders={false}
           content={balance}
+          percent={percent}
         />
         <Item
           image={priceImg}
           title={"WPT Price"}
-          isBalance={false}
           isHolders={false}
           content={price}
         />
         <Item
           image={marketImg}
           title={"Market Cap"}
-          isBalance={false}
           isHolders={false}
           content={marketcap}
         />
-        {/* <Item
+        <Item
           image={holdersImg}
           title={"Holders"}
-          isBalance={false}
           isHolders={true}
           content={holder}
-        /> */}
+        />
         <Item
           image={volumeImg}
           title={"Daily Volume"}
-          isBalance={false}
           isHolders={false}
           content={volume}
         />

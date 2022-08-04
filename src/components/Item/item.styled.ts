@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface Props {
+  percent: number;
+}
+
 const ItemContainer = styled.div`
   width: 100%;
   height: 210px;
@@ -38,9 +42,9 @@ const ItemTitle = styled.div`
   }
 `;
 
-const ItemBalance = styled.div`
+const ItemBalance = styled.div<Props>`
   & > .percent {
-    color: #3dd598;
+    color: ${({ percent }) => (percent >= 0 ? "#3dd598" : "red")};
     font-size: 17px;
     margin-right: 15px;
   }
