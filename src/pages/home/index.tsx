@@ -15,6 +15,9 @@ import marketImg from "assets/images/market.png";
 // import holdersImg from "assets/images/holders.svg";
 import volumeImg from "assets/images/volume.svg";
 
+require("dotenv").config();
+const { REACT_APP_SERVER_URI } = process.env;
+
 const Home = () => {
   const { currentAcc, web3 }: any = useEthContext();
   const [balance, setBalance] = useState(0);
@@ -46,7 +49,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/getInfo")
+      .get(REACT_APP_SERVER_URI + "/api/getInfo")
       .then((res) => {
         setPrice(res.data.quote.USD.price.toFixed(2));
         setVolume(res.data.quote.USD.volume_change_24h.toFixed(2));
