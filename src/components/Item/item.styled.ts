@@ -64,6 +64,11 @@ const ItemBalance = styled.div<Props>`
       font-size: 14px;
     }
   }
+  @media screen and (max-width: 768px) {
+    & > .percent {
+      margin-right: 10px;
+    }
+  }
 `;
 
 const ItemContent = styled.div`

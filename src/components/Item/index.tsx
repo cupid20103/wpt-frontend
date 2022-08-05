@@ -25,7 +25,7 @@ const Item = (props: Props) => {
     <ItemContainer>
       <ItemImage src={props.image} alt={"item"} />
       <ItemTitle>{props.title}</ItemTitle>
-      {props.percent != undefined ? (
+      {props.percent !== undefined ? (
         <ItemBalance percent={props.percent}>
           <span className={"percent"}>
             {percent}
