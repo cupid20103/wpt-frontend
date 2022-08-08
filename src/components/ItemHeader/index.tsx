@@ -14,27 +14,27 @@ import bnb from "assets/images/bnb.png";
 interface Props {
   isStaking: boolean;
   title: string;
-  subtitle: string;
+  subtitle: number;
   link?: string;
 }
 
-const ItemHeader = (props: Props) => {
+const ItemHeader = ({ isStaking, title, subtitle, link = "" }: Props) => {
   return (
     <ItemHeaderWrapper>
-      <ItemHeaderContainer isStaking={props.isStaking}>
+      <ItemHeaderContainer isStaking={isStaking}>
         <ItemHeaderTitle>
-          {props.isStaking ? null : (
-            <img className={"bnb"} src={bnb} alt={"bnb"} />
-          )}
+          {!isStaking && <img className={"bnb"} src={bnb} alt={"bnb"} />}
           <img className={"logo"} src={detail} alt={"logo"} />
           <ItemHeaderText>
-            <p>{props.title}</p>
-            <p className={"subtitle"}>{props.subtitle}</p>
+            <p>{title}</p>
+            <p className={"subtitle"}>
+              {isStaking
+                ? subtitle + " DAYS STAKING"
+                : "Liquidity: $" + subtitle}
+            </p>
           </ItemHeaderText>
         </ItemHeaderTitle>
-        {props.isStaking ? (
-          <ExternalLink title={"See token info"} link={props.link} />
-        ) : null}
+        {isStaking && <ExternalLink title={"See token info"} link={link} />}
       </ItemHeaderContainer>
     </ItemHeaderWrapper>
   );

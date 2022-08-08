@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // @import contexts
-import { useEthContext } from "contexts/EthereumContext/EthereumContext";
+import { useEthContext } from "contexts/Ethereum/EthereumContext";
 //@import styles
 import { WalletContainer, WalletStatus } from "./wallet.styled";
 //@import resources

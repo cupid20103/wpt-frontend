@@ -1,4 +1,7 @@
-export const WPTContractABI = [
+export const WPTInvestingCorpTokenAddress =
+  "0x4FD51Cb87ffEFDF1711112b5Bd8aB682E54988eA";
+
+export const WPTInvestingCorpTokenABI = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
     anonymous: false,

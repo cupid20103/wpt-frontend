@@ -8,10 +8,12 @@ const ExternalLinkContainer = styled.div<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   & > :not(:first-child) {
     margin-left: 15px;
   }
-  a {
+  a,
+  div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +23,8 @@ const ExternalLinkContainer = styled.div<Props>`
     height: 17px;
   }
   p {
-    color: ${({ color }) => (color ? color : "#D8D8D8")};
     font-size: 16px;
+    color: ${({ color }) => color};
   }
   @media screen and (max-width: 1900px) {
     & > :not(:first-child) {

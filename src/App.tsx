@@ -2,13 +2,12 @@ import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 // @import layouts
 import Layout from "layouts";
 // @import pages
 import { Farming, Home, Staking } from "pages";
 // @import contexts
-import EthereumContextProvider from "contexts/EthereumContext";
+import EthereumContextProvider from "contexts/Ethereum/EthereumContextProvider";
 // @import components
 import Loader from "components/Loader";
 

@@ -10,19 +10,17 @@ interface Props {
   price: number;
 }
 
-const WPT = (props: Props) => {
-  const amount = numberWithCommas(props.amount);
-  const price = numberWithCommas(props.price);
+const WPT = ({ isStaking = false, title, amount, price }: Props) => {
+  const atemp = numberWithCommas(amount);
+  const ptemp = numberWithCommas(price);
 
   return (
     <WPTContainer>
-      <p className={"title"}>{props.title}</p>
-      {amount && (
-        <span className={"amount"}>
-          {amount} {props.isStaking ? "WPT" : "WPT-ETH LP"}
-        </span>
-      )}
-      {price && <span className={"price"}>{`~` + price + ` USD`}</span>}
+      <p className={"title"}>{title}</p>
+      <span className={"amount"}>
+        {atemp} {isStaking ? "WPT" : "WPT-ETH LP"}
+      </span>
+      <span className={"price"}>{`~` + ptemp + ` USD`}</span>
     </WPTContainer>
   );
 };

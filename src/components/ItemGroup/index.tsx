@@ -17,7 +17,7 @@ import {
 interface Props {
   isStaking: boolean;
   title: string;
-  subtitle: string;
+  subtitle: number;
   tokenInfo?: string;
   apr: number;
   deposit: number;
@@ -30,53 +30,65 @@ interface Props {
   sPrice: number;
   earned: number;
   ePrice: number;
+  compound?: () => void;
+  addToken?: () => void;
 }
 
-const ItemGroup = (props: Props) => {
+const ItemGroup = ({
+  isStaking,
+  title,
+  subtitle,
+  tokenInfo = "",
+  apr,
+  deposit,
+  withdraw,
+  oneTitle,
+  oneLink,
+  twoTitle,
+  twoLink,
+  staked,
+  sPrice,
+  earned,
+  ePrice,
+  compound = () => {},
+  addToken = () => {},
+}: Props) => {
   return (
     <ItemGroupContainer>
       <ItemHeader
-        isStaking={props.isStaking}
-        title={props.title}
-        subtitle={props.subtitle}
-        link={props.tokenInfo}
+        isStaking={isStaking}
+        title={title}
+        subtitle={subtitle}
+        link={tokenInfo}
       />
       <ItemGroupContent>
         <ItemGroupAPR>
-          <p>{`APR: ` + props.apr + `%`}</p>
-          <ExternalLink
-            title={props.oneTitle}
-            color={"#76C893"}
-            link={props.oneLink}
-          />
+          <p>{`APR: ` + apr + `%`}</p>
+          <ExternalLink title={oneTitle} color={"#76C893"} link={oneLink} />
         </ItemGroupAPR>
         <ItemGroupFee>
           <p>
-            {`DEPOSIT FEE: ` + props.deposit + `%`}
+            {`DEPOSIT FEE: ` + deposit + `%`}
             <br />
-            {`WITHDRAW FEE: ` + props.withdraw + `%`}
+            {`WITHDRAW FEE: ` + withdraw + `%`}
           </p>
-          {props.isStaking ? (
+          {isStaking ? (
             <ExternalLink
-              title={props.twoTitle}
+              title={twoTitle}
               color={"#76C893"}
-              link={props.twoLink}
+              addToken={addToken}
               isMetamask
             />
           ) : (
-            <ExternalLink
-              title={props.twoTitle}
-              color={"#76C893"}
-              link={props.twoLink}
-            />
+            <ExternalLink title={twoTitle} color={"#76C893"} link={twoLink} />
           )}
         </ItemGroupFee>
         <ItemGroupDown>
           <WPT
-            isStaking={props.isStaking}
-            title={props.isStaking ? "WPT STAKED" : "WPT-ETH LP STAKED"}
-            amount={props.staked}
-            price={props.sPrice}
+            isStaking={isStaking}
+            title={isStaking ? "WPT STAKED" : "WPT-ETH LP STAKED"}
+            amount={staked}
+            price={sPrice}
           />
           <div className="operations">
             <PlusButton>{"+"}</PlusButton>
@@ -85,14 +97,14 @@ const ItemGroup = (props: Props) => {
         </ItemGroupDown>
         <ItemGroupDown>
           <WPT
-            isStaking={props.isStaking}
-            title={props.isStaking ? "WPT EARNED" : "WPT-ETH LP EARNED"}
-            amount={props.earned}
-            price={props.ePrice}
+            isStaking={isStaking}
+            title={isStaking ? "WPT EARNED" : "WPT-ETH LP EARNED"}
+            amount={earned}
+            price={ePrice}
           />
 
-          {props.isStaking ? (
-            <Button flag content="COMPOUND" />
+          {isStaking ? (
+            <Button flag content="COMPOUND" compound={compound} />
           ) : (
             <Button content="HARVEST" />
           )}

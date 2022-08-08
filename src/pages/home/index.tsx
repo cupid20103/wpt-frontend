@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+//@import contexts
+import { useEthContext } from "contexts/Ethereum/EthereumContext";
 //@import components
 import Item from "components/Item";
 import Detail from "components/Detail";
 //@import styles
 import { HomeContainer, HomeWrapper } from "./home.styled";
 //@import resources
-import { WPTAddress } from "contract/address";
-import { WPTContractABI } from "contract/abi";
-import { useEthContext } from "contexts/EthereumContext/EthereumContext";
+import {
+  WPTInvestingCorpTokenAddress,
+  WPTInvestingCorpTokenABI,
+} from "contract/WPTInvestingCorpToken";
+import { getTokenAmount } from "utils/getTokenAmount";
 import balanceImg from "assets/images/balance.svg";
 import priceImg from "assets/images/price.png";
 import marketImg from "assets/images/market.png";
@@ -22,21 +26,24 @@ const Home = () => {
   const { currentAcc, web3 }: any = useEthContext();
   const [percent, setPercent] = useState(0);
   const [balance, setBalance] = useState(0);
-  const [holder, setHolder] = useState(304);
+  // const [holder, setHolder] = useState(0);
   const [price, setPrice] = useState(0);
   const [volume, setVolume] = useState(0);
   const [marketcap, setMarketcap] = useState(0);
 
   useEffect(() => {
-    const contract = new web3.eth.Contract(WPTContractABI, WPTAddress);
+    if (web3 && currentAcc) {
+      const contract = new web3.eth.Contract(
+        WPTInvestingCorpTokenABI,
+        WPTInvestingCorpTokenAddress
+      );
 
-    if (currentAcc) {
       const interval = setInterval(async () => {
         await contract.methods
           .balanceOf(currentAcc)
           .call()
           .then((res: number) => {
-            setBalance(Number((res / 10 ** 18).toFixed(2)));
+            setBalance(getTokenAmount(res));
           });
       }, 1000);
 
@@ -52,10 +59,11 @@ const Home = () => {
     axios
       .get(REACT_APP_SERVER_URI + "/api/getInfo")
       .then((res) => {
-        setPercent(res.data.quote.USD.volume_change_24h.toFixed(2));
-        setPrice(res.data.quote.USD.price.toFixed(2));
-        setVolume(res.data.quote.USD.volume_24h.toFixed(2));
-        setMarketcap(res.data.self_reported_market_cap.toFixed(2));
+        const quoteData = res.data.quote.USD;
+        setPercent(quoteData?.volume_change_24h?.toFixed(2));
+        setPrice(quoteData?.price?.toFixed(2));
+        setVolume(quoteData?.volume_24h?.toFixed(2));
+        setMarketcap(res?.data?.self_reported_market_cap?.toFixed(2));
       })
       .catch((err) => console.log(err));
   }, []);
@@ -86,7 +94,7 @@ const Home = () => {
           image={holdersImg}
           title={"Holders"}
           isHolders={true}
-          content={holder}
+          content={304}
         />
         <Item
           image={volumeImg}

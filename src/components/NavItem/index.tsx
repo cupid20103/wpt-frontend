@@ -8,18 +8,15 @@ interface Props {
   active: boolean;
 }
 
-const NavItem = (props: Props) => {
+const NavItem = ({ image, link, active }: Props) => {
   const history = useNavigate();
   const handleMenuClick = (link: string) => {
     history(link);
   };
 
   return (
-    <NavItemContainer
-      active={props.active}
-      onClick={() => handleMenuClick(props.link)}
-    >
-      <img src={props.image} alt={"nav"} />
+    <NavItemContainer active={active} onClick={() => handleMenuClick(link)}>
+      <img src={image} alt={"nav"} />
     </NavItemContainer>
   );
 };

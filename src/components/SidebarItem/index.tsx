@@ -8,18 +8,15 @@ interface Props {
   active: boolean;
 }
 
-const SidebarItem = (props: Props) => {
+const SidebarItem = ({ content, link, active }: Props) => {
   const history = useNavigate();
   const handleMenuClick = (link: string) => {
     history(link);
   };
 
   return (
-    <SidebarItemContainer
-      active={props.active}
-      onClick={() => handleMenuClick(props.link)}
-    >
-      {props.content}
+    <SidebarItemContainer active={active} onClick={() => handleMenuClick(link)}>
+      {content}
     </SidebarItemContainer>
   );
 };

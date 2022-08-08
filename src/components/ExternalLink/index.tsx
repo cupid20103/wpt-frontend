@@ -1,7 +1,7 @@
 //@import styles
 import { ExternalLinkContainer } from "./external.styled";
 //@import resources
-import link from "assets/images/link.svg";
+import link_svg from "assets/images/link.svg";
 import metamask from "assets/images/metamask.png";
 
 interface Props {
@@ -9,19 +9,26 @@ interface Props {
   color?: string;
   isMetamask?: boolean;
   link?: string;
+  addToken?: () => void;
 }
 
-const ExternalLink = (props: Props) => {
+const ExternalLink = ({
+  title,
+  color = "#D8D8D8",
+  isMetamask = false,
+  link = "",
+  addToken = () => {},
+}: Props) => {
   return (
-    <ExternalLinkContainer color={props.color}>
-      <p>{props.title}</p>
-      {props.isMetamask ? (
-        <a href={props.link} target={"_blank"} rel={"noreferrer"}>
+    <ExternalLinkContainer color={color}>
+      <p>{title}</p>
+      {isMetamask ? (
+        <div onClick={addToken}>
           <img src={metamask} alt={"metamask"} />
-        </a>
+        </div>
       ) : (
-        <a href={props.link} target={"_blank"} rel={"noreferrer"}>
-          <img src={link} alt={"link"} />
+        <a href={link} target={"_blank"} rel={"noreferrer"}>
+          <img src={link_svg} alt={"link"} />
         </a>
       )}
     </ExternalLinkContainer>

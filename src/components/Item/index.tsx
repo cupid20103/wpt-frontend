@@ -17,24 +17,28 @@ interface Props {
   isHolders: boolean;
 }
 
-const Item = (props: Props) => {
-  const content = numberWithCommas(props.content);
-  const percent = numberWithCommas(props.percent);
+const Item = ({
+  image,
+  title,
+  content,
+  percent = 0,
+  isHolders = false,
+}: Props) => {
+  const ctemp = numberWithCommas(content);
+  const ptemp = numberWithCommas(percent);
 
   return (
     <ItemContainer>
-      <ItemImage src={props.image} alt={"item"} />
-      <ItemTitle>{props.title}</ItemTitle>
-      {props.percent !== undefined ? (
-        <ItemBalance percent={props.percent}>
-          <span className={"percent"}>
-            {percent}
-            {"%"}
-          </span>
-          <span className={"time"}>{"In 24hrs"}</span>
-        </ItemBalance>
-      ) : null}
-      <ItemContent>{props.isHolders ? content : `$` + content}</ItemContent>
+      <ItemImage src={image} alt={"item"} />
+      <ItemTitle>{title}</ItemTitle>
+      <ItemBalance ptemp={percent}>
+        <span className={"percent"}>
+          {ptemp}
+          {"%"}
+        </span>
+        <span className={"time"}>{"In 24hrs"}</span>
+      </ItemBalance>
+      <ItemContent>{isHolders ? ctemp : `$` + ctemp}</ItemContent>
     </ItemContainer>
   );
 };

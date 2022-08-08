@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  percent: number;
+  ptemp: number;
 }
 
 const ItemContainer = styled.div`
@@ -37,14 +37,19 @@ const ItemImage = styled.img`
 const ItemTitle = styled.div`
   color: #43bad1;
   font-size: 16px;
+  text-align: center;
   @media screen and (max-width: 1900px) {
     font-size: 14px;
   }
 `;
 
 const ItemBalance = styled.div<Props>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   & > .percent {
-    color: ${({ percent }) => (percent >= 0 ? "#3dd598" : "red")};
+    color: ${({ ptemp }) => (ptemp >= 0 ? "#3dd598" : "red")};
     font-size: 17px;
     margin-right: 15px;
   }
@@ -72,6 +77,7 @@ const ItemBalance = styled.div<Props>`
 `;
 
 const ItemContent = styled.div`
+  text-align: center;
   font-size: 24px;
   @media screen and (max-width: 1900px) {
     font-size: 20px;

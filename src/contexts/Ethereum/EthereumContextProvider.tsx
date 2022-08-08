@@ -24,7 +24,7 @@ const EthereumContextProvider = (props: Props) => {
       });
       ethereum.on("chainChanged", (chainId: string) => {
         if (chainId === "0x1") {
-          toast("Ethereum mainnet connected successfully");
+          toast("Ethereum mainnet connected successfully!");
         } else {
           toast.error("Please connect to Ethereum mainnet", {
             theme: "dark",
@@ -32,7 +32,7 @@ const EthereumContextProvider = (props: Props) => {
         }
       });
     } else {
-      toast.error("Please install Metamask wallet in this browser", {
+      toast.error("Please install Metamask wallet in this browser!", {
         theme: "dark",
       });
     }
