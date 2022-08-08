@@ -19,6 +19,7 @@ const EthereumContextProvider = (props: Props) => {
     if (ethereum && ethereum.isMetaMask) {
       setProvider(ethereum);
       setWeb3(new Web3(ethereum));
+
       ethereum.on("accountsChanged", (accs: any) => {
         setCurrentAcc(accs[0]);
       });

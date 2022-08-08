@@ -23,16 +23,14 @@ const Wallet = () => {
   }, []);
 
   const handleConnectWallet = async () => {
-    if (provider) {
-      await provider.request({ method: `eth_requestAccounts` });
-      try {
-        await provider.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x1" }],
-        });
-      } catch (switchError) {
-        console.log("Failed to switch to the network");
-      }
+    await provider.request({ method: `eth_requestAccounts` });
+    try {
+      await provider.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x1" }],
+      });
+    } catch (switchError) {
+      console.log("Failed to switch to the network");
     }
   };
 

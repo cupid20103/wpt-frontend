@@ -39,9 +39,15 @@ const Farming = () => {
       const length = await contract.methods.poolLength().call();
       const temp: any = [];
       for (let i = 0; i < length; i++) {
-        const el = { stakedData: null, earndData: null };
+        const el = { fee: null, stakedData: null, earndData: null };
         await contract.methods
           .poolInfo(i)
+          .call()
+          .then((res: any) => {
+            el.fee = res;
+          });
+        await contract.methods
+          .totalStaked(i)
           .call()
           .then((res: any) => {
             el.stakedData = res;
@@ -75,14 +81,14 @@ const Farming = () => {
             title={"EARN BUSD/ FARM WPT-ETH LP"}
             subtitle={10344.45}
             apr={108.13}
-            deposit={item.stakedData.depositFee}
-            withdraw={item.stakedData.withdrawFee}
+            deposit={item.fee.depositFee}
+            withdraw={item.fee.withdrawFee}
             oneTitle={"View Contract"}
             oneLink={"/"}
             twoTitle={"See pair info"}
             twoLink={"/"}
-            staked={getTokenAmount(item.stakedData.totalStaked)}
-            sPrice={getTokenAmount(item.stakedData.totalStaked * price)}
+            staked={getTokenAmount(item.stakedData)}
+            sPrice={getTokenAmount(item.stakedData * price)}
             earned={getTokenAmount(item.earndData.amount)}
             ePrice={getTokenAmount(item.earndData.amount * price)}
           />
